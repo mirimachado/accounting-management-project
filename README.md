@@ -3,7 +3,7 @@ Considerações: Esse projeto está em processo de desenvolvimento para a versã
 
 Esse projeto surgiu a partir de uma consulta com um contador sobre suas expectativas nas necessidades de gestão e organização de sua contabilidade. Realizado para gerir dados de empresas clientes e controlar
 as atividades contábeis a serem realizadas para cada empresa. Conta com características que permitem gerir o financeiro do escritório, como por exemplo:
-contas a pagar, conta a receber, controle de atividades periódicas, registros e centralização de dados dos clientes e armazenamento de documentos. Desenvolvido em Java, o projeto conta com comunicações de WebServices externos, serviços de
+contas a pagar, conta a receber, controle de atividades periódicas, gestão de contratos, registros e centralização de dados dos clientes e armazenamento de documentos. Desenvolvido em Java, o projeto conta com comunicações de WebServices externos, serviços de
 Autenticação e Autorização, serviços de e-mail, verificações de pendências, controles de acesso, notificações e alertas e mais.
 
 ## Projeto ContaLogic - Ferramentas utilizadas:
