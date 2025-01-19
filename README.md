@@ -32,6 +32,21 @@ Autenticação e Autorização, serviços de e-mail, verificações de pendênci
 
 
 -----------------------------------------------------------------------------------------
+## Prototipação no Figma - Exemplos:
+
+![image](https://github.com/user-attachments/assets/e169ba6f-21c0-4c1d-b57b-4388e0b9e8fc)
+![image](https://github.com/user-attachments/assets/ef49df4a-81b9-4f29-be52-d24d6b9a215a)
+![Screenshot from 2025-01-19 11-02-42](https://github.com/user-attachments/assets/b655db0e-1e9c-486a-89c6-951365bb8394)
+![image](https://github.com/user-attachments/assets/7250c15b-1ffc-42a8-9bfb-3ed9cc89fbd1)
+![image](https://github.com/user-attachments/assets/c2ff12c1-afd5-4a82-a937-37c771ce4a15)
+![image](https://github.com/user-attachments/assets/e2532a99-f96c-4adf-8389-a14b1ce96b2f)
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 
