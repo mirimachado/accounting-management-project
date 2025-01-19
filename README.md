@@ -8,13 +8,21 @@ Autenticação e Autorização, serviços de e-mail, verificações de pendênci
 
 ## Projeto ContaLogic - Ferramentas utilizadas:
 -Banco de dados PostgreSQL
+
 -Banco de dados MongoDB
+
 -Migração de dados com Flyway
+
 -Springboot
+
 -Docker para conteinerização
+
 -Insomnia para requisições http
+
 -JUnit e Mockito para testes unitários
+
 -Figma para prototipação do futuro Front-end
+
 -LucidChart para criação do Diagrama do BD
 
 ## Diagrama Modelo Relacional do projeto - Banco de dados Postgresql:
