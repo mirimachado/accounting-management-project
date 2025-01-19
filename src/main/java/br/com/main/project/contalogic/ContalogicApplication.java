@@ -1,4 +1,4 @@
-package br.com.main.project.contalogic.application;
+package br.com.main.project.contalogic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,0 +1,1 @@
+AlTER TABLE file ADD COLUMN library_document_id BIGINT;

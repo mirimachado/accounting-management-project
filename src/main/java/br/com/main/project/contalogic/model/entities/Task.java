@@ -1,6 +1,7 @@
 package br.com.main.project.contalogic.model.entities;
 
 import br.com.main.project.contalogic.model.enums.RecurringType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -11,10 +12,6 @@ import java.time.LocalDate;
 
 @Entity(name = "task")
 @Table(name = "task")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @EqualsAndHashCode(of = "id")
 @CrossOrigin
 public class Task {
@@ -22,7 +19,7 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", unique = true)
     private User user;
@@ -30,19 +27,24 @@ public class Task {
     private String taskName;
     @NotEmpty
     private String additionalInformation;
-    @NotEmpty
+    @NotNull
     @Enumerated(EnumType.STRING)
     private RecurringType recurringType;
     @NotNull
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate expirationDate;
-    @NotEmpty
+    @NotNull
     private Boolean generatesFine;
-    @NotEmpty
+    @NotNull
     private Integer taskNumber;
     @NotEmpty
     private String taskStatus;
-    @NotEmpty
+    @NotNull
     private Boolean automaticallyGenerating;
+
+    public Task(){
+
+    }
 
     public Task(String taskName,
                 User user, String additionalInformation,
@@ -60,6 +62,86 @@ public class Task {
         this.taskNumber = taskNumber;
         this.generatesFine = generatesFine;
         this.taskStatus = taskStatus;
+        this.automaticallyGenerating = automaticallyGenerating;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getAdditionalInformation() {
+        return additionalInformation;
+    }
+
+    public void setAdditionalInformation(String additionalInformation) {
+        this.additionalInformation = additionalInformation;
+    }
+
+    public RecurringType getRecurringType() {
+        return recurringType;
+    }
+
+    public void setRecurringType(RecurringType recurringType) {
+        this.recurringType = recurringType;
+    }
+
+    public Boolean getGeneratesFine() {
+        return generatesFine;
+    }
+
+    public void setGeneratesFine(Boolean generatesFine) {
+        this.generatesFine = generatesFine;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public Integer getTaskNumber() {
+        return taskNumber;
+    }
+
+    public void setTaskNumber(Integer taskNumber) {
+        this.taskNumber = taskNumber;
+    }
+
+    public String getTaskStatus() {
+        return taskStatus;
+    }
+
+    public void setTaskStatus(String taskStatus) {
+        this.taskStatus = taskStatus;
+    }
+
+    public Boolean getAutomaticallyGenerating() {
+        return automaticallyGenerating;
+    }
+
+    public void setAutomaticallyGenerating(Boolean automaticallyGenerating) {
         this.automaticallyGenerating = automaticallyGenerating;
     }
 }

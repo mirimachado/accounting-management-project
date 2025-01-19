@@ -7,13 +7,10 @@ import lombok.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity(name = "library_document")
 @Table(name = "library_document")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @EqualsAndHashCode(of = "id")
 @CrossOrigin
 public class LibraryDocument {
@@ -28,14 +25,58 @@ public class LibraryDocument {
     @NotEmpty
     private String folderName;
     @NotEmpty
-    @OneToMany
-    @JoinColumn(name = "file_id", referencedColumnName = "id", unique = true)
-    private File file;
+    @OneToMany(mappedBy = "libraryDocument")
+   // @JoinColumn(name = "file_id", referencedColumnName = "id", unique = true)
+    private List<File> file;
 
-    public LibraryDocument(File file, String folderName, LocalDate creationDate, String documentType) {
+    public LibraryDocument(){
+
+    }
+
+    public LibraryDocument(List<File> file, String folderName, LocalDate creationDate, String documentType) {
         this.file = file;
         this.folderName = folderName;
         this.creationDate = creationDate;
         this.documentType = documentType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(String documentType) {
+        this.documentType = documentType;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public List<File> getFile() {
+        return file;
+    }
+
+    public void setFile(List<File> file) {
+        this.file = file;
+    }
+
+    public String getFolderName() {
+        return folderName;
+    }
+
+    public void setFolderName(String folderName) {
+        this.folderName = folderName;
     }
 }

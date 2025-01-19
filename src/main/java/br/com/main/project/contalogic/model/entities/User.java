@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity(name = "users")
 @Table(name = "users")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @EqualsAndHashCode(of = "id")
 @CrossOrigin
 public class User {
@@ -29,24 +25,83 @@ public class User {
     private String email;
     @NotEmpty
     private String password;
-    @NotEmpty
+
     private Boolean active = true;
 //    @NotEmpty
     @Column(unique = true)
     private String token;
 
+    public User(){
+
+    }
+
     public User(String token,
-                Boolean active,
                 String password,
                 String email,
                 UserRole role,
                 String name) {
 
         this.token = token;
-        this.active = active;
+        this.active = true;
         this.password = password;
         this.email = email;
         this.role = role;
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

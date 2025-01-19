@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity(name = "contract")
 @Table(name = "contract")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @EqualsAndHashCode(of = "id")
 @CrossOrigin
 public class Contract {
@@ -24,19 +20,62 @@ public class Contract {
     @NotEmpty
     private Integer contractNumber;
     @NotEmpty
-    @NotEmpty
     @OneToOne
     @JoinColumn(name = "contract_management_id", referencedColumnName = "id", unique = true)
     private ContractManagement contractManagement;
     @NotEmpty
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "file_id", referencedColumnName = "id", unique = true)
     private File file;
+
+    public Contract(){
+
+    }
 
     public Contract(String contractTitle, Integer contractNumber, File file, ContractManagement contractManagement) {
         this.contractTitle = contractTitle;
         this.contractNumber = contractNumber;
         this.file = file;
         this.contractManagement = contractManagement;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContractTitle() {
+        return contractTitle;
+    }
+
+    public void setContractTitle(String contractTitle) {
+        this.contractTitle = contractTitle;
+    }
+
+    public Integer getContractNumber() {
+        return contractNumber;
+    }
+
+    public void setContractNumber(Integer contractNumber) {
+        this.contractNumber = contractNumber;
+    }
+
+    public ContractManagement getContractManagement() {
+        return contractManagement;
+    }
+
+    public void setContractManagement(ContractManagement contractManagement) {
+        this.contractManagement = contractManagement;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 }

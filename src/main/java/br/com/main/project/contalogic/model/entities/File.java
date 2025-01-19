@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity(name = "file")
 @Table(name = "file")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @EqualsAndHashCode(of = "id")
 @CrossOrigin
 public class File {
@@ -26,10 +22,48 @@ public class File {
     private ExtensionType extensionType;
     @NotEmpty
     private String fileName;
+    @ManyToOne
+    private LibraryDocument libraryDocument;
+
+    public File(){
+
+    }
 
     public File(String fileSize, ExtensionType extensionType, String fileName) {
         this.fileSize = fileSize;
         this.extensionType = extensionType;
+        this.fileName = fileName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(String fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    public ExtensionType getExtensionType() {
+        return extensionType;
+    }
+
+    public void setExtensionType(ExtensionType extensionType) {
+        this.extensionType = extensionType;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 }
