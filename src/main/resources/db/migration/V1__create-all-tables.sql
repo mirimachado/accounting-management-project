@@ -8,6 +8,16 @@ active BOOLEAN,
 token VARCHAR(255)
 );
 
+CREATE TABLE cnpj(
+id BIGSERIAL PRIMARY KEY NOT NULL,
+cnpj VARCHAR(14) NOT NULL,
+description_cadastral_status VARCHAR(255) NOT NULL,
+registration_status_date DATE NOT NULL,
+date_initial_activity DATE NOT NULL,
+cnae_tax_description VARCHAR(255) NOT NULL
+);
+
+
 CREATE TABLE file(
 id BIGSERIAL PRIMARY KEY NOT NULL,
 file_size VARCHAR(255) NOT NULL,
@@ -64,7 +74,10 @@ telephone VARCHAR(50) NOT NULL,
 address_id BIGINT NOT NULL,
 email VARCHAR(50) NOT NULL,
 entry_date DATE NOT NULL,
-CONSTRAINT fk_client_address_id FOREIGN KEY (address_id) REFERENCES address(id) ON DELETE CASCADE
+cnpj_id BIGINT NOT NULL,
+CONSTRAINT fk_client_address_id FOREIGN KEY (address_id) REFERENCES address(id) ON DELETE CASCADE,
+CONSTRAINT fk_client_cnpj_id FOREIGN KEY (cnpj_id) REFERENCES cnpj(id) ON DELETE CASCADE
+
 
 );
 

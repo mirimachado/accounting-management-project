@@ -2,7 +2,6 @@ package br.com.main.project.contalogic.complementarymodules.webservices.geolocat
 
 import br.com.main.project.contalogic.complementarymodules.webservices.geolocation.dtos.ExternalGeolocationRequestDTO;
 import br.com.main.project.contalogic.complementarymodules.webservices.geolocation.services.ExternalGeolocationAPIService;
-
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api_geolocation")
+@RequestMapping("/query")
 public class ExternalGeolocationAPIController {
 
     @Autowired

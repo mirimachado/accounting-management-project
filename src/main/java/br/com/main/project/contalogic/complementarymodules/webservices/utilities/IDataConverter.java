@@ -1,4 +1,4 @@
-package br.com.main.project.contalogic.complementarymodules.webservices.geolocation;
+package br.com.main.project.contalogic.complementarymodules.webservices.utilities;
 
 public interface IDataConverter {
 

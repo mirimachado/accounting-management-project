@@ -1,9 +1,11 @@
-package br.com.main.project.contalogic.complementarymodules.webservices.geolocation;
+package br.com.main.project.contalogic.complementarymodules.webservices.utilities;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
-public class DataConverter implements IDataConverter{
+@Component
+public class DataConverter implements IDataConverter {
 
     private ObjectMapper mapper = new ObjectMapper();
 

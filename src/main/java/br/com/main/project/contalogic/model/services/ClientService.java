@@ -1,6 +1,7 @@
 package br.com.main.project.contalogic.model.services;
 
 import br.com.main.project.contalogic.complementarymodules.webservices.geolocation.repositories.ExternalGeolocationRepository;
+import br.com.main.project.contalogic.complementarymodules.webservices.register.repositories.ExternalRegisterRepository;
 import br.com.main.project.contalogic.model.dtos.requests.ClientRequestDTO;
 import br.com.main.project.contalogic.model.entities.Client;
 import br.com.main.project.contalogic.model.repositories.ClientRepository;
@@ -21,6 +22,9 @@ public class ClientService {
 
     @Autowired
     private ExternalGeolocationRepository geolocationRepository;
+
+    @Autowired
+    private ExternalRegisterRepository externalRegisterRepository;
 
     public ResponseEntity<List<Client>> getClients(){
         List<Client> clients = repository.findAll();
@@ -47,6 +51,8 @@ public class ClientService {
             client.setEntryDate(data.entryDate());
             client.setCorporateReason(data.corporateReason());
             client.setFantasyName(data.fantasyName());
+            client.setCnpj(data.cnpj());
+            externalRegisterRepository.save(data.cnpj());
             geolocationRepository.save(data.address());
             repository.save(client);
         }

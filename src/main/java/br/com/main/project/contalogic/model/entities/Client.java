@@ -19,6 +19,10 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
+    @OneToOne
+    @JoinColumn(name = "cnpj_id", referencedColumnName = "id", unique = true)
+    private Cnpj cnpj;
+    @NotEmpty
     private String fantasyName;
     @NotEmpty
     private String corporateReason;
@@ -38,7 +42,8 @@ public class Client {
 
     }
 
-    public Client(String fantasyName, String corporateReason, String telephone, Address address, String email, LocalDate entryDate) {
+    public Client(Cnpj cnpj, String fantasyName, String corporateReason, String telephone, Address address, String email, LocalDate entryDate) {
+        this.cnpj = cnpj;
         this.fantasyName = fantasyName;
         this.corporateReason = corporateReason;
         this.telephone = telephone;
@@ -55,12 +60,12 @@ public class Client {
         this.id = id;
     }
 
-    public String getCorporateReason() {
-        return corporateReason;
+    public Cnpj getCnpj() {
+        return cnpj;
     }
 
-    public void setCorporateReason(String corporateReason) {
-        this.corporateReason = corporateReason;
+    public void setCnpj(Cnpj cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getFantasyName() {
@@ -69,6 +74,14 @@ public class Client {
 
     public void setFantasyName(String fantasyName) {
         this.fantasyName = fantasyName;
+    }
+
+    public String getCorporateReason() {
+        return corporateReason;
+    }
+
+    public void setCorporateReason(String corporateReason) {
+        this.corporateReason = corporateReason;
     }
 
     public String getTelephone() {
