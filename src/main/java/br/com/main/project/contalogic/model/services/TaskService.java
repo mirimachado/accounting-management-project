@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,25 +19,21 @@ public class TaskService {
     @Autowired
     private TaskRepository repository;
 
+
     public ResponseEntity<List<Task>> getTasks(){
         List<Task> tasks = repository.findAll();
         return ResponseEntity.ok(tasks);
-
     }
 
     @Transactional
     public ResponseEntity<String> createTask(TaskRequestDTO data){
         Optional<Task> taskName = repository.findByTaskName(data.taskName());
-        Optional<Task> taskNumber = repository.findByTaskNumber(data.taskNumber());
         if (taskName.isPresent()){
             return ResponseEntity.badRequest().body("Já existe uma tarefa com esse nome, tente novamente! ");
         }
-        else if (taskNumber.isPresent()){
-            return ResponseEntity.badRequest().body("Já existe uma tarefa com esse número, tente novamente! ");
-        }
+
         else{
            Task task = new Task();
-
            task.setTaskName(data.taskName());
            task.setTaskNumber(data.taskNumber());
            task.setTaskStatus(data.taskStatus());
@@ -46,6 +43,10 @@ public class TaskService {
            task.setExpirationDate(data.expirationDate());
            task.setGeneratesFine(data.generatesFine());
            task.setRecurringType(data.recurringType());
+           task.setGenerationEndDate(data.generationEndDate());
+           task.setPendingFlag(data.pendingFlag());
+           task.setPreviousFlag(data.previousFlag());
+           task.setTaskCreationDate(LocalDate.now());
            repository.save(task);
 
         }
@@ -66,6 +67,9 @@ public class TaskService {
             task.setExpirationDate(data.expirationDate());
             task.setGeneratesFine(data.generatesFine());
             task.setRecurringType(data.recurringType());
+            task.setGenerationEndDate(data.generationEndDate());
+            task.setPendingFlag(data.pendingFlag());
+            task.setPreviousFlag(data.previousFlag());
             repository.save(task);
             return ResponseEntity.ok("Tarefa atualizada com sucesso. ");
         }

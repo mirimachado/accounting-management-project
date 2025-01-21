@@ -49,7 +49,11 @@ expiration_date DATE NOT NULL,
 generates_fine BOOLEAN,
 task_number INTEGER NOT NULL,
 task_status VARCHAR(50) NOT NULL,
-automatically_generating BOOLEAN
+generation_end_date DATE,
+pending_flag BOOLEAN,
+previous_flag BOOLEAN,
+automatically_generating BOOLEAN,
+task_creation_date DATE NOT NULL
 
 );
 

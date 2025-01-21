@@ -27,6 +27,14 @@ public record TaskRequestDTO(Long id,
                              @NotBlank
                              String taskStatus,
                              @NotNull
-                             Boolean automaticallyGenerating
+                             Boolean automaticallyGenerating,
+                             @JsonFormat(pattern = "yyyy-MM-dd")
+                             LocalDate generationEndDate,
+                             @NotNull
+                             Boolean pendingFlag,
+                             @NotNull
+                             Boolean previousFlag,
+                             @NotNull
+                             LocalDate taskCreationDate
                              ) {
 }

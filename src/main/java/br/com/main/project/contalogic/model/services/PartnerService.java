@@ -69,6 +69,7 @@ public class PartnerService {
             partner.setVacancy(data.vacancy());
             partner.setClient(data.client());
             partner.setTelephone(data.telephone());
+            geolocationRepository.save(data.address());
             repository.save(partner);
             return ResponseEntity.ok("Sócio atualizado com sucesso. ");
         }

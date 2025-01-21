@@ -2,7 +2,6 @@ package br.com.main.project.contalogic.complementarymodules.webservices.register
 
 import br.com.main.project.contalogic.complementarymodules.webservices.register.dtos.RegisterDataDTO;
 import br.com.main.project.contalogic.complementarymodules.webservices.utilities.DataConverter;
-import br.com.main.project.contalogic.complementarymodules.webservices.geolocation.dtos.GeolocationDataDTO;
 import br.com.main.project.contalogic.complementarymodules.webservices.register.dtos.ExternalRegisterRequestDTO;
 import br.com.main.project.contalogic.complementarymodules.webservices.utilities.ApiConnectionService;
 import org.springframework.beans.factory.annotation.Autowired;

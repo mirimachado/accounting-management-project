@@ -70,6 +70,9 @@ public class ClientService {
             client.setEntryDate(data.entryDate());
             client.setCorporateReason(data.corporateReason());
             client.setFantasyName(data.fantasyName());
+            client.setCnpj(data.cnpj());
+            externalRegisterRepository.save(data.cnpj());
+            geolocationRepository.save(data.address());
             repository.save(client);
             return ResponseEntity.ok("Cliente atualizado com sucesso. ");
         }

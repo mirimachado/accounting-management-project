@@ -41,44 +41,33 @@ public class Task {
     private String taskStatus;
     @NotNull
     private Boolean automaticallyGenerating;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate generationEndDate;
+    @NotNull
+    private Boolean pendingFlag;
+    @NotNull
+    private Boolean previousFlag;
+    @NotNull
+    private LocalDate taskCreationDate;
 
     public Task(){
 
     }
 
-    public Task(String taskName,
-                User user, String additionalInformation,
-                RecurringType recurringType,
-                LocalDate expirationDate,
-                Integer taskNumber,
-                Boolean generatesFine,
-                String taskStatus,
-                Boolean automaticallyGenerating) {
-        this.taskName = taskName;
+    public Task(User user, String taskName, RecurringType recurringType, String additionalInformation, LocalDate expirationDate, Boolean generatesFine, Integer taskNumber, String taskStatus, Boolean automaticallyGenerating, LocalDate generationEndDate, Boolean pendingFlag, Boolean previousFlag, LocalDate taskCreationDate) {
         this.user = user;
-        this.additionalInformation = additionalInformation;
+        this.taskName = taskName;
         this.recurringType = recurringType;
+        this.additionalInformation = additionalInformation;
         this.expirationDate = expirationDate;
-        this.taskNumber = taskNumber;
         this.generatesFine = generatesFine;
+        this.taskNumber = taskNumber;
         this.taskStatus = taskStatus;
         this.automaticallyGenerating = automaticallyGenerating;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTaskName() {
-        return taskName;
-    }
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+        this.generationEndDate = generationEndDate;
+        this.pendingFlag = pendingFlag;
+        this.previousFlag = previousFlag;
+        this.taskCreationDate = taskCreationDate;
     }
 
     public User getUser() {
@@ -87,6 +76,14 @@ public class Task {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 
     public String getAdditionalInformation() {
@@ -105,20 +102,20 @@ public class Task {
         this.recurringType = recurringType;
     }
 
-    public Boolean getGeneratesFine() {
-        return generatesFine;
-    }
-
-    public void setGeneratesFine(Boolean generatesFine) {
-        this.generatesFine = generatesFine;
-    }
-
     public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
     public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public Boolean getGeneratesFine() {
+        return generatesFine;
+    }
+
+    public void setGeneratesFine(Boolean generatesFine) {
+        this.generatesFine = generatesFine;
     }
 
     public Integer getTaskNumber() {
@@ -143,5 +140,45 @@ public class Task {
 
     public void setAutomaticallyGenerating(Boolean automaticallyGenerating) {
         this.automaticallyGenerating = automaticallyGenerating;
+    }
+
+    public LocalDate getGenerationEndDate() {
+        return generationEndDate;
+    }
+
+    public void setGenerationEndDate(LocalDate generationEndDate) {
+        this.generationEndDate = generationEndDate;
+    }
+
+    public Boolean getPendingFlag() {
+        return pendingFlag;
+    }
+
+    public void setPendingFlag(Boolean pendingFlag) {
+        this.pendingFlag = pendingFlag;
+    }
+
+    public Boolean getPreviousFlag() {
+        return previousFlag;
+    }
+
+    public void setPreviousFlag(Boolean previousFlag) {
+        this.previousFlag = previousFlag;
+    }
+
+    public LocalDate getTaskCreationDate() {
+        return taskCreationDate;
+    }
+
+    public void setTaskCreationDate(LocalDate taskCreationDate) {
+        this.taskCreationDate = taskCreationDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
